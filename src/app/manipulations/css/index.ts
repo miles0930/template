@@ -1,8 +1,8 @@
 
-import camelToKebabCase from '../../../utils/camel-to-kebab-case';
-import isObjLike from '../../../utils/is-obj-like';
-import isNum from '../../../utils/is-num';
-import isAutoPx from '../../../utils/is-auto-px';
+import kebabCase from 'lodash-es/kebabCase';
+import isObjLike from 'lodash-es/isObjectLike';
+import isNum from 'lodash-es/isNumber';
+import isAutoPxProp from '../../../utils/is-auto-px-prop';
 
 export function css(param?: any, value?: any) {
     const element = this;
@@ -12,9 +12,9 @@ export function css(param?: any, value?: any) {
             element.style.setProperty(param, value);
             return element;
         }
-        param = camelToKebabCase(param);
-        if (isAutoPx(param) && isNum(value)) {
-            value += 'px';
+        param = kebabCase(param);
+        if (isAutoPxProp(param) && isNum(value)) {
+            value = value + 'px';
         }
         element.style[param] = value;
         return element;
@@ -26,7 +26,7 @@ export function css(param?: any, value?: any) {
                 element.style.setProperty(key, propValue);
             } else {
                 element.style[key] = propValue +
-                    (isAutoPx(camelToKebabCase(key)) && isNum(propValue) ?
+                    (isAutoPxProp(kebabCase(key)) && isNum(propValue) ?
                         'px' :
                         ''
                     );
