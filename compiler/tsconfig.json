@@ -1,10 +1,7 @@
 {
     "compilerOptions": {
-        "baseUrl": "../",
-        "outDir": "./out-tsc/app",
         "sourceMap": true,
-        "declaration": false,
-        "downlevelIteration": true,
+        "declaration": true,
         "emitDecoratorMetadata": true,
         "experimentalDecorators": true,
         "moduleResolution": "node",
@@ -26,6 +23,9 @@
         "**/*.spec.ts"
     ],
     "include": [
+        "../src/**/*.d.ts"
+    ],
+    "files": [
         "../src/**/*.ts"
     ]
 }

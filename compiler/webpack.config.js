@@ -7,20 +7,22 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 module.exports = env => {
     const entryGlob = [
-        path.join('../src/app', env.PACKAGE || '', '**/index.{ts,js}')
+        path.join('../src/app/**/index.{ts,js}')
     ];
 
     return {
-        entry: () => new Promise((resolve) => resolve(glob.sync(entryGlob).reduce((entrypoint, eachPath) => {
-            const parsePath = path.parse(path.relative(path.join('../src/app', env.PACKAGE || ''), eachPath));
-            const filename = path.join(parsePath.dir, parsePath.name);
-            entrypoint[filename] = [eachPath];
-            return entrypoint;
-        }, {}))),
+        entry: () => new Promise((resolve) => resolve(
+            glob.sync(entryGlob).reduce((entrypoint, eachPath) => {
+                const parsePath = path.parse(path.relative(path.join('../src/app'), eachPath));
+                const filename = path.join(parsePath.dir, parsePath.name);
+                entrypoint[filename] = [eachPath];
+                return entrypoint;
+            }, {}))
+        ),
         mode: 'production',
         resolve: {
             extensions: ['.js', '.ts'],
-            modules: [path.resolve('../src'), 'node_modules']
+            modules: [path.resolve('../src'), path.resolve('../src', 'node_modules')]
         },
         module: {
             rules: [
@@ -28,7 +30,7 @@ module.exports = env => {
                     test: /\.ts$/,
                     loader: 'ts-loader',
                     options: {
-                        configFile: path.resolve('../', 'tsconfig.app.json')
+                        configFile: path.resolve('../tsconfig.compiler.json')
                     }
                 },
                 {
@@ -57,7 +59,8 @@ module.exports = env => {
             }),
             new Webpack.ProgressPlugin(),
             new BundleAnalyzerPlugin({
-                analyzerMode: 'static'
+                analyzerMode: 'static',
+                openAnalyzer: false
             })
         ]
     }

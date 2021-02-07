@@ -1,6 +1,7 @@
 {
     "name": "@master/dom",
-    "version": "1.0.1",
+    "version": "1.0.0",
     "license": "MIT",
-    "private": false
+    "private": false,
+    "types": "index.d.ts"
 }
