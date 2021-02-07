@@ -1,18 +1,23 @@
 {
-    "name": "@master/dom",
-    "version": "1.0.0",
+    "name": "dom",
+    "version": "0.0.0",
     "scripts": {
         "ng": "ng",
         "start": "ng serve",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",
-        "e2e": "ng e2e"
+        "e2e": "ng e2e",
+        "pack": "cd compiler && webpack",
+        "publish": "cd package && npm publish --access public",
+        "release": "npm run pack && npm run publish"
     },
-    "private": true,
-    "dependencies": {
-        "lodash-es": "^4.17.20"
-    },
+    "files": [
+        "dist/index.js"
+    ],
+    "license": "MIT",
+    "private": false,
+    "dependencies": {},
     "devDependencies": {
         "@angular-devkit/build-angular": "~0.1101.4",
         "@angular/animations": "~11.1.2",

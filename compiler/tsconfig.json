@@ -1,0 +1,31 @@
+{
+    "compilerOptions": {
+        "baseUrl": "../",
+        "outDir": "./out-tsc/app",
+        "sourceMap": true,
+        "declaration": false,
+        "downlevelIteration": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "moduleResolution": "node",
+        "importHelpers": true,
+        "removeComments": true,
+        "target": "es6",
+        "module": "es2020",
+        "lib": [
+            "es2016",
+            "es5",
+            "dom"
+        ],
+        "types": [
+            "node"
+        ]
+    },
+    "exclude": [
+        "node_modules",
+        "**/*.spec.ts"
+    ],
+    "include": [
+        "../src/**/*.ts"
+    ]
+}

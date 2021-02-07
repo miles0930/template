@@ -1,15 +1,14 @@
-declare type ListenerOptions = {
-    capture?: boolean;
-    once?: boolean;
-    passive?: boolean;
-    id?: any;
-}
 
 export default function off(
     typeSet?: any,
     factorSelector?,
     handle?,
-    option?: ListenerOptions
+    option?: {
+        capture?: boolean;
+        once?: boolean;
+        passive?: boolean;
+        id?: any;
+    }
 ) {
     const
         target = this,

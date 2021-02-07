@@ -1,5 +1,3 @@
-import './traversings';
-
 import on from './event-listener/on';
 import off from './event-listener/on';
 import { attr, toggleAttr } from './manipulations/attr';
