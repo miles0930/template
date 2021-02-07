@@ -2,8 +2,7 @@
     "name": "dom",
     "version": "0.0.0",
     "scripts": {
-        "ng": "ng",
-        "start": "ng serve",
+        "start": "npm i && npm run serve",
         "build": "ng build",
         "test": "ng test",
         "lint": "ng lint",

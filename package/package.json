@@ -5,5 +5,8 @@
     "private": false,
     "main": "index.js",
     "types": "index.d.ts",
-    "type": "module"
+    "type": "module",
+    "files": [
+        "dist/*"
+    ]
 }
