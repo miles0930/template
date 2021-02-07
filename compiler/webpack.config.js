@@ -53,8 +53,9 @@ module.exports = env => {
         plugins: [
             new CleanWebpackPlugin({
                 cleanOnceBeforeBuildPatterns: [
-                    '!../package/package.json',
-                    '!../package/.npmignore'
+                    '**/*',
+                    '!package.json',
+                    '!.npmignore'
                 ]
             }),
             new Webpack.ProgressPlugin(),
