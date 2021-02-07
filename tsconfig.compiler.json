@@ -1,11 +1,11 @@
 {
     "extends": "./tsconfig.json",
     "compilerOptions": {
-        "rootDirs": [ "src/utils"],
+        "rootDir": "src/app",
         "outDir": "./package",
         "declaration": true,
     },
     "include": [
-        "src/app/**/*.ts"
+        "src/app/**/*index.ts"
     ]
 }
