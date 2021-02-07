@@ -4,7 +4,6 @@ const Webpack = require('webpack');
 const glob = require('globby');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const EsmWebpackPlugin = require("@purtuga/esm-webpack-plugin");
 
 module.exports = env => {
     const entryGlob = [

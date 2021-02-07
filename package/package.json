@@ -1,6 +1,6 @@
 {
     "name": "@master/dom",
-    "version": "1.0.6",
+    "version": "1.0.0",
     "license": "MIT",
     "private": false,
     "main": "index.js",
