@@ -4,6 +4,7 @@ const Webpack = require('webpack');
 const glob = require('globby');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const EsmWebpackPlugin = require("@purtuga/esm-webpack-plugin");
 
 module.exports = env => {
     const entryGlob = [
@@ -48,7 +49,8 @@ module.exports = env => {
             ]
         },
         output: {
-            path: path.resolve('../package')
+            path: path.resolve('../package'),
+            libraryTarget: 'umd'
         },
         plugins: [
             new CleanWebpackPlugin({

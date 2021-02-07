@@ -1,12 +1,7 @@
-import on from './event-listener/on';
-import off from './event-listener/on';
+import { on, off } from './event-listener';
 import { attr, toggleAttr } from './manipulations/attr';
 import { css } from './manipulations/css';
 import { addClass, rmClass, toggleClass } from './manipulations/class';
-
-const METHODS = { $, on, off, attr, toggleAttr, css, addClass, rmClass, toggleClass };
-
-export { METHODS }
 
 const fragment = document.createDocumentFragment();
 
@@ -55,8 +50,10 @@ function $(
     Object.assign(target,
         target === window
             ? { on, off }
-            : METHODS
+            : { on, off, attr, toggleAttr, css, addClass, rmClass, toggleClass }
     );
 
     return target;
 }
+
+export { $, on, off, attr, toggleAttr, css, addClass, rmClass, toggleClass };

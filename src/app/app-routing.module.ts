@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { OffComponent } from './event-listener/off/off.component';
-import { OnComponent } from './event-listener/on/on.component';
+import { EventListenerComponent } from './event-listener/event-listener.component';
 import { CodingStyleComponent } from './guideline/coding-style/coding-style.component';
 import { InstallationComponent } from './guideline/installation/installation.component';
 import { AttrComponent } from './manipulations/attr/attr.component';
@@ -16,10 +15,7 @@ const routes: Routes = [
         ]
     },
     {
-        path: 'event-listener', children: [
-            { path: 'on', component: OnComponent },
-            { path: 'off', component: OffComponent }
-        ]
+        path: 'event-listener', component: EventListenerComponent
     },
     {
         path: 'manipulations', children: [
