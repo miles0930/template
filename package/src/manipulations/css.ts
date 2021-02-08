@@ -1,8 +1,8 @@
 
-import isObjLike from '../../utils/is-obj-like';
-import isNum from '../../utils/is-num';
-import isAutoPxProp from '../../utils/is-auto-px-prop';
-import camelToKebabCase from '../../utils/camel-to-kebab-case';
+import isObjLike from '../utils/is-obj-like';
+import isNum from '../utils/is-num';
+import isAutoPxProp from '../utils/is-auto-px-prop';
+import camelToKebabCase from '../utils/camel-to-kebab-case';
 
 export function css(param?: any, value?: any) {
     const element = this;

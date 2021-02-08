@@ -1,7 +1,6 @@
-import { on, off } from './event-listener';
-import { attr, toggleAttr } from './manipulations/attr';
-import { css } from './manipulations/css';
-import { addClass, rmClass, toggleClass } from './manipulations/class';
+import * as MANIPULATION_FN from './manipulations';
+import * as EVENT_FN from './event-listener';
+
 const fragment = document.createDocumentFragment();
 
 export function $(
@@ -16,7 +15,7 @@ export function $(
         target = document.createElement(elementOrTagName as string, attrOptions && attrOptions.is ? { is: attrOptions.is } : undefined);
 
         if (attrOptions && Object.keys(attrOptions).length) {
-            attr.call(target, attrOptions)
+            MANIPULATION_FN.attr.call(target, attrOptions)
         }
 
         if (attrOptions?.html) {
@@ -48,8 +47,8 @@ export function $(
 
     Object.assign(target,
         target === window
-            ? { on, off }
-            : { on, off, attr, toggleAttr, css, addClass, rmClass, toggleClass }
+            ? { ...EVENT_FN }
+            : { ...MANIPULATION_FN, ...EVENT_FN }
     );
 
     return target;

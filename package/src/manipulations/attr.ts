@@ -1,5 +1,5 @@
-import parseAttrValue from '../../utils/parse-attr-value';
-import isObjLike from '../../utils/is-obj-like';
+import parseAttrValue from '../utils/parse-attr-value';
+import isObjLike from '../utils/is-obj-like';
 
 export function attr(param?: any, value?: any): any {
     const element = this;
