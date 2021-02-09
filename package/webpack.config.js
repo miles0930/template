@@ -4,17 +4,17 @@ const Webpack = require('webpack');
 const glob = require('globby');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const package = require('../package.json');
+const package = require('./package.json');
 
 module.exports = env => {
     const entryGlob = [
-        path.join('../src/**/index.{ts,js}')
+        path.join('./src/**/index.{ts,js}')
     ];
 
     return {
         entry: () => new Promise((resolve) => resolve(
             glob.sync(entryGlob).reduce((entrypoint, eachPath) => {
-                const parsePath = path.parse(path.relative(path.join('../src'), eachPath));
+                const parsePath = path.parse(path.relative(path.join('./src'), eachPath));
                 const filename = path.join(parsePath.dir, parsePath.name);
                 entrypoint[filename] = [eachPath];
                 return entrypoint;
@@ -24,7 +24,7 @@ module.exports = env => {
         mode: 'production',
         resolve: {
             extensions: ['.js', '.ts'],
-            modules: [path.resolve('../src'), path.resolve('../node_modules')]
+            modules: [path.resolve('./src'), path.resolve('./node_modules')]
         },
         module: {
             rules: [
@@ -32,7 +32,7 @@ module.exports = env => {
                     test: /\.ts$/,
                     loader: 'ts-loader',
                     options: {
-                        configFile: path.resolve('../tsconfig.json')
+                        configFile: path.resolve('./tsconfig.json')
                     }
                 },
                 {
@@ -50,7 +50,7 @@ module.exports = env => {
             ]
         },
         output: {
-            path: path.resolve('../dist'),
+            path: path.resolve('./dist'),
             libraryTarget: 'umd'
         },
         plugins: [
