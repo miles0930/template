@@ -8,18 +8,16 @@ const package = require('./package.json');
 
 module.exports = env => {
     const entryGlob = [
-        path.join('src/**/index.{ts,js}')
+        'src/**/index.{ts,js}'
     ];
-
+    
     return {
-        entry: () => new Promise((resolve) => resolve(
-            glob.sync(entryGlob).reduce((entrypoint, eachPath) => {
-                const parsePath = path.parse(path.relative(path.join('./src'), eachPath));
-                const filename = path.join(parsePath.dir, parsePath.name);
-                entrypoint[filename] = [path.resolve(eachPath)];
-                return entrypoint;
-            }, {}))
-        ),
+        entry: glob.sync(entryGlob).reduce((entrypoint, eachPath) => {
+            const parsePath = path.parse(path.relative(path.join('./src'), eachPath));
+            const filename = path.join(parsePath.dir, parsePath.name);
+            entrypoint[filename] = [path.resolve(eachPath)];
+            return entrypoint;
+        }, {}),
         externals: Object.keys(package.dependencies),
         mode: 'production',
         resolve: {
