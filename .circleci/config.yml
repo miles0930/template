@@ -18,21 +18,9 @@ jobs:
       - run:
           name: release
           command: npm run semantic-release || true
-  deploy-document:
-    docker:
-      - image: 'circleci/node:12.16'
-    steps:
-      - checkout
-      - run: 
-          name: install
-          command: npm i firebase-cli
-      - run:
-          name: deploy
-          command: npx firebase-tools deploy --token $FIREBASE_TOKEN
 
 workflows:
   version: 2
-  release_and_deploy:
+  release:
     jobs:
       - release-package
-      - deploy-document
