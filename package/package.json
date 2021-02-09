@@ -1,10 +1,10 @@
 {
-    "name": "@master/template",
+    "name": "miles0930testtemplate",
     "version": "1.0.0",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/master-style/template.git"
+        "url": "https://github.com/miles0930/template.git"
     },
     "author": "Aoyue Design LTD.",
     "private": false,
