@@ -19,6 +19,9 @@ module.exports = env => {
                 return entrypoint;
             }, {}))
         ),
+        externals: [
+            '@master/dom'
+        ], // in order to ignore all modules in node_modules folder
         mode: 'production',
         resolve: {
             extensions: ['.js', '.ts'],
