@@ -1,10 +1,10 @@
 {
-    "name": "@master/dom",
-    "version": "1.0.3",
+    "name": "@master/template",
+    "version": "1.0.0",
     "license": "MIT",
     "repository": {
         "type": "git",
-        "url": "https://github.com/master-style/dom.git"
+        "url": "https://github.com/master-style/template.git"
     },
     "author": "Aoyue Design LTD.",
     "private": false,
@@ -12,5 +12,8 @@
     "types": "dist/index.d.ts",
     "files": [
         "dist"
-    ]
+    ],
+    "dependencies": {
+        "@master/dom": "~1.0.0"
+    }
 }
