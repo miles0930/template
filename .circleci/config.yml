@@ -21,4 +21,4 @@ workflows:
   release:
     jobs:
       - release-package:
-        context: Master
+          context: Master
